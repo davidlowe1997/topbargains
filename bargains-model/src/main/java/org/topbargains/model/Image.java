@@ -1,7 +1,11 @@
 package org.topbargains.model;
 
+import java.io.Serializable;
+import java.util.Collection;
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 import org.apache.commons.lang.Validate;
 
 /**
@@ -9,8 +13,11 @@ import org.apache.commons.lang.Validate;
  * @author Bruno Barin
  */
 @PersistenceCapable
-public class Image {
+public class Image implements Serializable {
 
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private String id;
     /** The image width */
     @Persistent
     private short width;
@@ -52,24 +59,30 @@ public class Image {
     }
 
     public byte[] getContent() {
-        return content.clone();
+        return content;
     }
 
     public ImageType getType() {
         return type;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     
     /**
      * The image type enumeration
      */
-    @PersistenceCapable
-    static enum ImageType {
+    public static enum ImageType {
         JPEG("image/jpeg"),
         GIF("image/gif"),
         PNG("image/png"),
         BMP("image/bmp");
         
-        @Persistent
         private String mimeType;
         
         private ImageType(String mimeType) {

@@ -1,5 +1,6 @@
 package org.topbargains.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import javax.jdo.annotations.PersistenceCapable;
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotNull;
  * @author Bruno Barin
  */
 @PersistenceCapable
-public class User {
+public class User implements Serializable {
 
     /**
      * User's email

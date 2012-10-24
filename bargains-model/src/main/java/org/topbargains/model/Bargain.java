@@ -30,7 +30,7 @@ public class Bargain implements Serializable {
      */
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
-    private Long id;
+    private String id;
     /**
      * The title
      */
@@ -116,11 +116,11 @@ public class Bargain implements Serializable {
         this.image = image;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
