@@ -35,41 +35,50 @@ public class Bargain implements Serializable {
      * The title
      */
     @NotNull
+    @Persistent
     private String title;
     /**
      * The description
      */
     @NotNull
+    @Persistent
     private String description;
     /**
      * The publish date
      */
+    @Persistent
     private Date publishDate;
     /**
      * The URL to the bargain
      */
     @NotNull
+    @Persistent
     private String url;
     /**
      * The bargain's image
      */
+    @Persistent
     private Image image;
     /**
      * How hot the bargain is
      */
+    @Persistent
     private Integer hotness = 0;
     /**
      * How cold the bargain is
      */
+    @Persistent
     private Integer coldness = 0;
     /**
      * The user who posted the bargain
      */
     @NotNull
+    @Persistent
     private User addedBy;
     /**
      * The expiration date
      */
+    @Persistent
     private Date expirationDate;
 
     /**

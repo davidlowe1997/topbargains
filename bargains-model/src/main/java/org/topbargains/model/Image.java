@@ -1,6 +1,7 @@
 package org.topbargains.model;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 import org.apache.commons.lang.Validate;
 
 /**
@@ -11,12 +12,16 @@ import org.apache.commons.lang.Validate;
 public class Image {
 
     /** The image width */
+    @Persistent
     private short width;
     /** The image height */
+    @Persistent
     private short height;
     /** The image content */
+    @Persistent
     private byte[] content;
     /** The image type */
+    @Persistent
     private ImageType type;
 
     /**
@@ -56,13 +61,15 @@ public class Image {
     
     /**
      * The image type enumeration
-     */    
+     */
+    @PersistenceCapable
     static enum ImageType {
         JPEG("image/jpeg"),
         GIF("image/gif"),
         PNG("image/png"),
         BMP("image/bmp");
         
+        @Persistent
         private String mimeType;
         
         private ImageType(String mimeType) {
