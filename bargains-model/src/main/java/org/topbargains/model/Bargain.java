@@ -57,7 +57,7 @@ public class Bargain implements Serializable {
     /**
      * The bargain's image
      */
-    @Persistent
+    @Persistent(dependent="true")
     private Image image;
     /**
      * How hot the bargain is
