@@ -16,7 +16,7 @@ public class BargainTest {
 
     private static Validator validator;
     private Bargain bargain;
-    final User user = new User("user@domain.com");
+    final User user = new User("user@domain.com","bbarin");
 
     @BeforeClass
     public static void setUpClass() {

@@ -15,19 +15,30 @@ import org.junit.Test;
  */
 public class UserTest {
     
-    @Test
+    @Test(expected=IllegalArgumentException.class)
     public void constructorWithNullEmail() {
-        new User(null);
+        new User(null,"bbarin");
     }
     
-    @Test
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void constructorWithNullNickname() {
+        new User("ddd",null);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
     public void constructorWithEmptyEmail() {
-        new User("");
+        new User("","bbarin");
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void constructorWithEmptyNickname() {
+        new User("dsdsd","");
     }
 
     @Test
     public void creationDateIsToday() {
-        Date memberSince = new User("user@domain.com").getMemberSince();
+        Date memberSince = new User("user@domain.com","bbarin").getMemberSince();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(memberSince);
         assertEquals(0,memberSince.compareTo(new Date()));
